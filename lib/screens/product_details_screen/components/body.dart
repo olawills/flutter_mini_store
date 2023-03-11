@@ -1,17 +1,14 @@
 import 'dart:developer';
-
 import 'package:card_swiper/card_swiper.dart';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:mini_shop/models/product_model.dart';
 import 'package:mini_shop/services/api_handler.dart';
-
 import '../../../exports/constants_exports.dart';
 
 class ProductDetails extends StatefulWidget {
   final String id;
   const ProductDetails({Key? key, required this.id}) : super(key: key);
-  
 
   @override
   State<ProductDetails> createState() => _ProductDetailsState();
@@ -51,8 +48,8 @@ class _ProductDetailsState extends State<ProductDetails> {
             ? Center(
                 child: Text(
                   'An Error Occured $errorStr',
-                  style:
-                      const TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+                  style: const TextStyle(
+                      fontSize: 25, fontWeight: FontWeight.w500),
                 ),
               )
             : productsModel == null
@@ -80,12 +77,13 @@ class _ProductDetailsState extends State<ProductDetails> {
                               ),
                               const SizedBox(height: 18),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Flexible(
                                     flex: 3,
                                     child: Text(
-                                      productsModel!.title.toString(),
+                                      productsModel!.title!,
                                       textAlign: TextAlign.start,
                                       style: titleStyle,
                                     ),
@@ -101,7 +99,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                                         ),
                                         children: [
                                           TextSpan(
-                                            text: productsModel!.price.toString(),
+                                            text:
+                                                productsModel!.price.toString(),
                                             style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               color: lightTextColor,
